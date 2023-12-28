@@ -38,4 +38,8 @@ const ItemListContainer = ({greeting}) => {
     )
 }
 
+ItemListContainer.propTypes = {
+    greeting: String,
+}
+
 export default ItemListContainer;
