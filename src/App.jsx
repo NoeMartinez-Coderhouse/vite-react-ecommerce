@@ -5,7 +5,7 @@ import './App.css'
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
-function App() {
+const App = () => {
   const [count, setCount] = useState(0)
   const greeting = 'Somos Benni, la tienda mágica donde encontrarás todo para tu librería.'
 
