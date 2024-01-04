@@ -5,7 +5,14 @@ import './App.css'
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Diaries from './components/Diaries/Diaries';
+import Diaries from './pages/Diaries/Diaries';
+import Promos from './pages/Promos/Promos';
+import Papers from './pages/Papers/Papers';
+import Accessories from './pages/Accessories/Accessories';
+import Account from './pages/Account/Account';
+import SeeAll from './pages/SeeAll/SeeAll';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
+import Home from './pages/Home/Home';
 
 const App = () => {
   const [count, setCount] = useState(0)
@@ -28,18 +35,21 @@ const App = () => {
             <img src={reactLogo} className="logo react" alt="React logo" />
           </a>
         </div>
-        <h1>Vite + React</h1>
         <div className="card">
           <button onClick={() => setCount((count) => count + 1)}>
             count is {count}
           </button>
         </div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
       </div>
       <Routes>
-        <Route path='/' element={ <Diaries /> } />
+        <Route path='/' element={ <Home /> } />
+        <Route path='/diaries2024' element={ <Diaries /> } />
+        <Route path='/promos' element={ <Promos /> } />
+        <Route path='/papers' element={ <Papers /> } />
+        <Route path='/accessories' element={ <Accessories /> } />
+        <Route path='/account' element={ <Account /> } />
+        <Route path='/seeAll' element={ <SeeAll /> } />
+        <Route path='/*' element={ <ErrorPage /> } />
       </Routes>
     </Router>
   )

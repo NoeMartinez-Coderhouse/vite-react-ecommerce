@@ -2,6 +2,7 @@ import CartWidget from "../CartWidget/CartWidget"
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 const linkSX = {
     "&:hover": {
@@ -23,12 +24,12 @@ const NavBar = () => {
             >
                 Benni
             </Typography>
-            <Button variant="text" color="inherit" sx={linkSX} onClick={null}>Agendas 2024</Button>
-            <Button variant="text" color="inherit" sx={linkSX} onClick={null}>Promos</Button>
-            <Button variant="text" color="inherit" sx={linkSX} onClick={null}>Papelería</Button>
-            <Button variant="text" color="inherit" sx={linkSX} onClick={null}>Accesorios</Button>
-            <Button variant="text" color="inherit" sx={linkSX} onClick={null}>Ver todo</Button>
-            <Button variant="text" color="inherit" sx={linkSX} onClick={null}>Mi cuenta</Button>
+            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/diaries2024">Agendas 2024</Button>
+            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/promos">Promos</Button>
+            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/papers">Papelería</Button>
+            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/accessories">Accesorios</Button>
+            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/seeAll">Ver todo</Button>
+            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/account">Mi cuenta</Button>
             <CartWidget />
         </Toolbar>
     )
