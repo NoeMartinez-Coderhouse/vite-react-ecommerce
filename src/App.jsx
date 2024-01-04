@@ -4,13 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Diaries from './components/Diaries/Diaries';
 
 const App = () => {
   const [count, setCount] = useState(0)
   const greeting = 'Somos Benni, la tienda mágica donde encontrarás todo para tu librería.'
 
   return (
-    <>
+    <Router>
       <div>
         <NavBar className='navbar' />
       </div>
@@ -36,7 +38,10 @@ const App = () => {
           Click on the Vite and React logos to learn more
         </p>
       </div>
-  </>
+      <Routes>
+        <Route path='/' element={ <Diaries /> } />
+      </Routes>
+    </Router>
   )
 }
 
