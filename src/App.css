@@ -1,7 +1,22 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.navbar {
+  background-color: #ffffff;
+}
+
+.main {
+  justify-content: center;
+  align-content: center;
 }
 
 .logo {
@@ -21,34 +36,21 @@
 
 @keyframes logo-spin {
   from {
-    transform: rotate(0deg);
+      transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+      transform: rotate(360deg);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+      animation: logo-spin infinite 20s linear;
   }
 }
 
 .card {
   padding: 2em;
-}
-
-.App {
-  text-align: center;
-}
-
-.navbar {
-  background-color: #ffffff;
-}
-
-.main {
-  justify-content: center;
-  align-content: center;
 }
 
 .iconContainer,
@@ -64,4 +66,11 @@ h1 {
   line-height: 1.1;
   display: flex;
   justify-content: center;
+}
+
+.cards-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin: 10px;
+  gap: 10px;
 }

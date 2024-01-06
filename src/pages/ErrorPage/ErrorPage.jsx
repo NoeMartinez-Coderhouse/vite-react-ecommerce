@@ -14,8 +14,7 @@ const ErrorPage = () => {
         <div>
             <h1>Error Page</h1>
             <p>404</p>
-            <p>Usted será redireccionado en 3 segundos a la home page...
-            </p>
+            <p>Usted será redireccionado en 3 segundos a la home page...</p>
         </div>
     )
 };

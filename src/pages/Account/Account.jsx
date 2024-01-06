@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 const linkSX = {
+    margin: '10px',
+    
     "&:hover": {
         border: "1px solid #FFFFF",
         color: "#9C27B0",
