@@ -1,7 +1,17 @@
 import CartWidget from "../CartWidget/CartWidget"
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Menu from '../MenuContainer/MenuContainer'
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
+
+const linkSX = {
+    "&:hover": {
+        border: "1px solid #FFFFF",
+        color: "#9C27B0",
+        backgroundColor: "#FFFFF",
+        fontWeight: 700
+    }
+};
 
 const NavBar = () => {
     return (
@@ -14,7 +24,12 @@ const NavBar = () => {
             >
                 Benni
             </Typography>
-            <Menu/>
+            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/diaries2024">Agendas 2024</Button>
+            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/promos">Promos</Button>
+            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/papers">Papelería</Button>
+            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/accessories">Accesorios</Button>
+            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/seeAll">Ver todo</Button>
+            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/account">Mi cuenta</Button>
             <CartWidget />
         </Toolbar>
     )
