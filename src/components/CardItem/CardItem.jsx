@@ -5,8 +5,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-const CardDiary = ({ diary }) => {
-    const { image, name, status, species, origin } = diary;
+const CardItem = ({ item }) => {
+    console.log(item)
+    const { image, name, status, species, origin } = item;
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardActionArea>
@@ -31,4 +32,4 @@ const CardDiary = ({ diary }) => {
     );
 }
 
-export default CardDiary;
+export default CardItem;

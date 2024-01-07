@@ -24,10 +24,10 @@ const NavBar = () => {
             >
                 Benni
             </Typography>
-            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/diaries2024">Agendas 2024</Button>
-            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/promos">Promos</Button>
-            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/papers">Papelería</Button>
+            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/category/female">Agendas 2024</Button>
+            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/category/male/human">Papelería</Button>
             <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/accessories">Accesorios</Button>
+            <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/promos">Promos</Button>
             <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/seeAll">Ver todo</Button>
             <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/account">Mi cuenta</Button>
             <CartWidget />

@@ -9,6 +9,9 @@ const Home = () => {
 
     return (
         <>
+            <div>
+                <h1>Home</h1>
+            </div>
             <div className='main'>
                 <div className='itemListContainer'>
                     <ItemListContainer greeting={greeting} />
@@ -21,14 +24,6 @@ const Home = () => {
                         <img src={reactLogo} className="logo react" alt="React logo" />
                     </a>
                 </div>
-                <div className="card">
-                    <button onClick={() => setCount((count) => count + 1)}>
-                        count is {count}
-                    </button>
-                </div>
-            </div>
-            <div>
-                <h1>Home</h1>
             </div>
         </>
     )

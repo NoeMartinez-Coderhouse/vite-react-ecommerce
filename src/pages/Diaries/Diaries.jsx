@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import ListDiaries from "./../../components/ListDiaries/ListDiaries"
+import DiariesCategory from '../DiariesCategory/DiariesCategory';
 
 const linkSX = {
     margin: '10px',
@@ -18,7 +18,7 @@ const Diaries = () => {
         <div>
             <h1>Agendas 2024</h1>
             <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/">Volver al inicio</Button>
-            <ListDiaries />
+            <DiariesCategory />
         </div>
     )
 }
