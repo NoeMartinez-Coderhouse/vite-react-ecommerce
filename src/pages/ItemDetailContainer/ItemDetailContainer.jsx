@@ -2,19 +2,19 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-import CardDiary from "../../components/CardDiary/CardDiary";
+import CardItem from "../../components/CardItem/CardItem";
 
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 const ItemDetailContainer = () => {
-    const [diary, setDiary] = useState({});
+    const [item, setItem] = useState({});
     let {id} = useParams();
 
     useEffect(()  => {
         axios(`https://rickandmortyapi.com/api/character/${id}`)
             .then((json) =>
-                setDiary(json.data)
+                setItem(json.data)
             );
     }, [id]);
 
@@ -32,7 +32,7 @@ const ItemDetailContainer = () => {
     return (
         <>
             <div style={{display: "flex", justifyContent: "center", margin: 20}}>
-                {diary.id ? <CardDiary diary={diary} /> : null}
+                {item.id ? <CardItem item={item} /> : null}
             </div>
             <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/">Volver al inicio</Button>
         </>

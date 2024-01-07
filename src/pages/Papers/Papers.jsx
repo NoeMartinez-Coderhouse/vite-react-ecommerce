@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import PapersCategory from '../PapersCategory/PapersCategory';
 
 const linkSX = {
     margin: '10px',
@@ -17,6 +18,7 @@ const Papers = () => {
         <div>
             <h1>Papelería</h1>
             <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/">Volver al inicio</Button>
+            <PapersCategory />
         </div>
     )
 }

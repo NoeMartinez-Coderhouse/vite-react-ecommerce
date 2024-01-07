@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import CardDiary from "../CardDiary/CardDiary";
+import CardItem from "../CardItem/CardItem";
 import { Link } from "react-router-dom";
 
-const ListDiaries = () => {
-    const [diaries, setDiaries] = useState([]);
+const ListItems = () => {
+    const [items, setItems] = useState([]);
 
     useEffect(()  => {
         axios("https://rickandmortyapi.com/api/character").then((res) =>
-            setDiaries(res.data.results)
+            setItems(res.data.results)
         );
     }, []);
 
     return (
         <div className="cards-list">
-            { diaries.map((diary) => {
+            { items.map((item) => {
                 return (
-                    <div  key={diary.id}>
-                        <Link to={`/item/${diary.id}`}>
-                            <CardDiary diary={diary} />
+                    <div  key={item.id}>
+                        <Link to={`/item/${item.id}`}>
+                            <CardItem item={item} />
                         </Link>
                     </div>
                 );
@@ -27,4 +27,4 @@ const ListDiaries = () => {
     )
 };
 
-export default ListDiaries
+export default ListItems
