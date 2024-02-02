@@ -49,11 +49,6 @@
   }
 }
 
-.itemListContainer {
-  display: flex;
-  margin: 10px;
-}
-
 .iconContainer,
 p {
   display: flex;
@@ -69,7 +64,23 @@ h1 {
 
 .cards-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   margin: 10px;
   gap: 10px;
+}
+
+.detail-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+}
+
+.buyButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2px;
+  text-align: center;
+  align-items: center;
 }

@@ -2,11 +2,11 @@ import CartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 
-const CartWidget = () => {
+const CartWidget = ({itemsAmount}) => {
     return (
         <>
             <IconButton color='inherit'>
-                <Badge badgeContent={1} color="secondary" max={99} >
+                <Badge badgeContent={itemsAmount} color="secondary" max={99} >
                     <CartIcon />
                 </Badge> 
             </IconButton>

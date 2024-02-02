@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import ListItems from "../../components/ListItems/ListItems"
+import ItemListContainer from '../../components/ItemListContainer/ItemListContainer';
+import { ITEMS_DB } from '../../constants/global';
 
 const linkSX = {
     margin: '10px',
@@ -18,7 +19,7 @@ const SeeAll = () => {
         <div>
             <h1>Ver todo</h1>
             <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/">Volver al inicio</Button>
-            <ListItems />
+            <ItemListContainer database={ITEMS_DB} />
         </div>
     )
 }

@@ -1,34 +1,32 @@
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from 'react-router-dom';
-import Button from '@mui/material/Button';
-// FIREBASE
+import { Link, useParams } from "react-router-dom";
 import { db } from "../../firebase/firebaseConfig";
-import { collection, query, getDocs, where, documentId } from "firebase/firestore";
-import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import { ITEMS_DB } from "../../constants/global";
+import { Button } from "@mui/material";
+import Item from "../../components/Item/Item";
 
-const ItemDetailContainer = () => {
-    const [item, setItem] = useState([]);
-    let { id } = useParams();
+const ItemsCategory = () => {
+    const [items, setItems] = useState([]);
+    let { category } = useParams();
 
     useEffect(() => {
         const getData = async () => {
             const docs = [];
             const q = query(
                 collection(db, ITEMS_DB),
-                where(documentId(), "==", id)
+                where("category", "==", category)
             );
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
                 docs.push({...doc.data(), id: doc.id})
             });
-            setItem(docs);
+            setItems(docs);
         };
         getData();
-      }, [id, item]);
+      }, [category, items]);
 
-    const linkSX = {
+      const linkSX = {
         margin: '10px',
         
         "&:hover": {
@@ -38,14 +36,16 @@ const ItemDetailContainer = () => {
             fontWeight: 700
         }
     };
-    
-    return (
+
+      return (
         <>
             <Button variant="text" color="inherit" sx={linkSX} component={Link} to="/">Volver al inicio</Button>
-            <div className="detail-card">
-                {item.map((i) => {
+            <div className="cards-list">
+                {items.map((item) => {
                     return (
-                        <ItemDetail key={i.id} item={i} />
+                        <Link style={{ textDecoration: 'none' }} key={item.id} to={`/item/${item.id}`}>
+                            <Item key={item.id} item={item} />
+                        </Link>
                     )
                 })}
             </div>
@@ -53,4 +53,4 @@ const ItemDetailContainer = () => {
     )
 };
 
-export default ItemDetailContainer;
+export default ItemsCategory;
