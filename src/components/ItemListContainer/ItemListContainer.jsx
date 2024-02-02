@@ -1,45 +1,28 @@
-import Dialog from '@mui/material/Dialog';
-import Button from '@mui/material/Button';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import CloseIcon from '@mui/icons-material/Close'
-import DialogTitle from '@mui/material/DialogTitle';
-import React from 'react';
+import { useEffect, useState } from 'react';
+// FIREBASE
+import { db } from "../../firebase/firebaseConfig";
+import { collection, query, getDocs } from "firebase/firestore";
+import ItemList from '../ItemList/ItemList';
 
-const ItemListContainer = ({greeting}) => {
-    const title = 'Bienvenidos';
-    const [open, setOpen] = React.useState(false);
+const ItemListContainer = ({database}) => {
+    const [data, setData] = useState([]);
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
+    useEffect(() => {
+        const getData = async () => {
+            const docs = [];
+            const q = query(collection(db, database));
+            const querySnapshot = await getDocs(q);
+            querySnapshot.forEach((doc) => {
+                docs.push({...doc.data(), id: doc.id})
+            });
+            setData(docs);
+        }
+        getData();
+      }, []);
 
     return (
-        <>
-            <Button variant="outlined" color={'inherit'} onClick={handleClickOpen} sx={{justifyContent: 'start'}}>
-                Bienvenida
-            </Button>
-            <Dialog open={open} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
-                <CloseIcon fontSize='2' sx={{padding: 1}} onClick={handleClose} />
-                <DialogTitle sx={{textAlign: 'center'}} id="alert-dialog-title">
-                    {title}
-                </DialogTitle>
-                <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                        {greeting}
-                    </DialogContentText>
-                </DialogContent>
-            </Dialog>
-        </>
+        <ItemList items={data} />
     )
-}
-
-ItemListContainer.propTypes = {
-    greeting: String,
-}
+};
 
 export default ItemListContainer;
